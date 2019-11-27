@@ -5,15 +5,17 @@ import os
 import sys
 import yaml
 
+sys.path.append("C:\\Users\\jerem\\Desktop\\labelme\\")
+
 from qtpy import QtWidgets
 
 from labelme import __appname__
 from labelme import __version__
 from labelme.app import MainWindow
+from labelme.app import VideoWindow
 from labelme.config import get_config
 from labelme.logger import logger
 from labelme.utils import newIcon
-
 
 def main():
     parser = argparse.ArgumentParser()
@@ -163,6 +165,8 @@ def main():
         output_file=output_file,
         output_dir=output_dir,
     )
+
+    # win = VideoWindow()
 
     if reset_config:
         logger.info('Resetting Qt config: %s' % win.settings.fileName())
